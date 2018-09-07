@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Python - Weather App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/owfont-regular.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300">
+    <link rel="icon" href={{ url_for('static', filename='img/favicon.ico') }}>
+</head>
+<body>
+<h1>Weather App - Python</h1>
+<div class="container">
+    <fieldset>
+        <form role="form" action="/" method="post">
+            <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+            <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+</div>
+{% if var_city %}
+<ul>
+    <li>
+        <h2>{{ var_city }}</h2>
+        <div>
+            <i class="owf owf-{{ var_id }} owf-4x" style="opacity: 0.4" ></i>
+            <div class="temp">{{ var_tempf }}<sup>°F</sup> / {{ var_tempc }} <sup>°C</sup></div>
+        </div>
+        <div style="clear: both;"></div>
+    </li>
+</ul>
+{% endif %}
+</body>
+</html>
